@@ -7,8 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/customers")
+@CrossOrigin("*")
 public class CustomerController {
 
     @Autowired
@@ -16,7 +20,7 @@ public class CustomerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Customer save(@RequestBody Customer customer) {
+    public Customer save(@RequestBody @Valid Customer customer) {
         return customerRepository.save(customer);
     }
 
@@ -24,7 +28,12 @@ public class CustomerController {
     public Customer getById(@PathVariable Integer id) {
         return customerRepository
                 .findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!"));
+    }
+
+    @GetMapping
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
     }
 
     @DeleteMapping("{id}")
@@ -34,17 +43,17 @@ public class CustomerController {
                 customerRepository.delete(customer);
                 return customer;
             })
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!"));
     }
 
     @PutMapping("{id}")
-    public void update(@PathVariable Integer id, @RequestBody Customer customerUpdated) {
+    public void update(@PathVariable Integer id, @RequestBody @Valid Customer customerUpdated) {
         customerRepository.findById(id)
             .map( customer -> {
                 customer.setName(customerUpdated.getName());
                 customer.setCpf(customerUpdated.getCpf());
                 return customerRepository.save(customerUpdated);
             })
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!"));
     }
 }
