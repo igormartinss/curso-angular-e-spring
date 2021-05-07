@@ -1,9 +1,15 @@
 package com.igor.estudo.clientes.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
+@Getter
+@Setter
 public class Supply {
 
     @Id
@@ -19,4 +25,7 @@ public class Supply {
 
     @Column
     private BigDecimal price;
+
+    @Column
+    private LocalDate date;
 }

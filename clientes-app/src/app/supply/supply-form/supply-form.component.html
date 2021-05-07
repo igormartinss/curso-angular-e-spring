@@ -1,0 +1,53 @@
+<h1 class="mt-4">Serviço Prestado</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-bittem active">Novo</li>    
+</ol>
+<div class="container">
+    <form action="" #form="ngForm" (submit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Cliente</label>
+                    <select class="form-control"
+                    [(ngModel)]="supply.idCliente">
+                        <option value="">
+                            Selecione
+                        </option>
+                        <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">
+                            {{ cliente.name }}
+                        </option>
+                    </select> 
+                </div>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="">Descrição</label>
+                    <input class="form-control" [(ngModel)]="supply.description" type="text" name="descricao" id="descricao">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Data</label>
+                    <input class="form-control" [(ngModel)]="supply.date" type="text" name="data" id="data">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Preço</label>
+                    <input class="form-control" [(ngModel)]="supply.price" type="text" name="preco" id="preco">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
