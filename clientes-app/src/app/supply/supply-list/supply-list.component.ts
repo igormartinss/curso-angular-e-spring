@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SupplyService } from 'src/app/services/supply.service';
+import { Supply } from '../supply.model';
 
 @Component({
   selector: 'app-supply-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplyListComponent implements OnInit {
 
-  constructor() { }
+  name: string;
+  message: string;
+  supplies: Supply[];
+
+  constructor(private service: SupplyService) { }
 
   ngOnInit(): void {
   }
 
+  search() {
+    this.service.search(this.name).subscribe(response => {
+      this.supplies = response;
+      console.log(this.supplies);
+      if(this.supplies.length <= 0) {
+        this.message = "Nenhum registro";
+      } else {
+        this.message = null;
+      }
+    })
+  }
 }

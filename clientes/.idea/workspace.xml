@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca334cf-be31-4899-9074-6679153b3720" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/controller/SupplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/model/dto/SupplyDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/util/BigDecimalConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clientes-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../clientes-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clientes-app/src/app/template/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../clientes-app/src/app/template/sidebar/sidebar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientes-app/src/app/services/supply.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../clientes-app/src/app/services/supply.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientes-app/src/app/supply/supply-form/supply-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../clientes-app/src/app/supply/supply-form/supply-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientes-app/src/app/supply/supply.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../clientes-app/src/app/supply/supply.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/model/entity/Supply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/model/entity/Supply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/model/repository/SupplyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/model/repository/SupplyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/model/entity/Supply.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/model/entity/Supply.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/model/repository/SupplyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/model/repository/SupplyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/controller/SupplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/controller/SupplyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/controller/CustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/controller/SupplyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/igor/estudo/clientes/controller/SupplyController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +247,9 @@
       <workItem from="1619668505625" duration="1831000" />
       <workItem from="1619900850145" duration="3000" />
       <workItem from="1620260159375" duration="1114000" />
-      <workItem from="1620361771495" duration="881000" />
+      <workItem from="1620361771495" duration="1135000" />
+      <workItem from="1621298966316" duration="1900000" />
+      <workItem from="1621388446894" duration="1158000" />
     </task>
     <servers />
   </component>
@@ -296,6 +297,22 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/controller/SupplyController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/controller/SupplyController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/igor/estudo/clientes/CustomersApplication.java">

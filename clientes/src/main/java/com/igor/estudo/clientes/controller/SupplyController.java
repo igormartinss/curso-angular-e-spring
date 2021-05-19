@@ -19,7 +19,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/supplies")
-@CrossOrigin("*")
 public class SupplyController {
 
     @Autowired

@@ -1,1 +1,52 @@
-<p>supply-list works!</p>
+<h1 class="mt-4">Serviço Prestado</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-bittem active">Consulta</li>    
+</ol>
+<div class="row">
+    <div class="col-md-2">
+        <button class="btn btn-success" routerLink="/supply-form">
+            <i class="fa fa-plus"></i> Novo
+        </button>
+    </div>
+</div>
+<div class="container">
+    <form action="" (submit)="search()">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Nome do Cliente</label><input type="text" [(ngModel)]="name" name="name" id="inputName" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary">buscar</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+            {{ message }}
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of supplies" >
+                        <td>{{ this.name }}</td>
+                        <td>{{ s.description }}</td>
+                        <td>{{ s.price }}</td>
+                        <td>{{ s.date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>

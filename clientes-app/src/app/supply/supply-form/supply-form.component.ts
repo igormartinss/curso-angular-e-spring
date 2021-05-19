@@ -14,6 +14,9 @@ export class SupplyFormComponent implements OnInit {
   clientes: Cliente[];
   supply: Supply;
 
+  success: boolean;
+  errors: String[];
+
   constructor(private clienteService: ClientesService, private supplyService: SupplyService) {
     this.supply = new Supply();
    }
@@ -27,7 +30,12 @@ export class SupplyFormComponent implements OnInit {
 
   onSubmit(){
     this.supplyService.save(this.supply).subscribe( response => {
-      console.log(response)
+      this.success = true;
+      this.errors = null;      
+      this.supply = new Supply();
+    }, errorResponse => {
+      this.success = false;
+      this.errors = errorResponse.error.errors;
     })
   }
 
