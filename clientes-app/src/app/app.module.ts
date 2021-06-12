@@ -11,23 +11,31 @@ import { ClientesModule } from './clientes/clientes.module';
 import { ClientesService } from './services/clientes.service';
 import { SupplyModule } from './supply/supply.module';
 import { SupplyService } from './services/supply.service';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { LayoutComponent } from './layout/layout.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     TemplateModule,
     AppRoutingModule,
     ClientesModule,
-    SupplyModule
+    SupplyModule,
   ],
   providers: [
     ClientesService,
-    SupplyService
+    SupplyService,
+    AuthService
 
   ],
   bootstrap: [AppComponent]

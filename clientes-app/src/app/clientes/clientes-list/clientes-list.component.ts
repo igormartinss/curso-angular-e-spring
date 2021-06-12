@@ -31,7 +31,7 @@ export class ClientesListComponent implements OnInit {
   }
 
   newCustomer() {
-    this.router.navigate(['/clientes-form']);
+    this.router.navigate(['/customer/form']);
   }
 
   prepareDelete(cliente: Cliente) {
