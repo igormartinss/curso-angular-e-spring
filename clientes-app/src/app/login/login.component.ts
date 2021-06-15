@@ -25,8 +25,15 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(['/home'])
-    console.log(`User: ${this.username}, PW: ${this.password}`)
+    this.authService
+            .login(this.username, this.password)
+            .subscribe(response => {
+              const accessToken = JSON.stringify(response);
+              localStorage.setItem('access_token', accessToken);
+              this.router.navigate(['/home']);
+            }, errorResponse => {
+              this.errorMessages = ['Usuário e/ou senha incrretos'];
+            })
   }
 
   prepareRegiter(event: Event) {
