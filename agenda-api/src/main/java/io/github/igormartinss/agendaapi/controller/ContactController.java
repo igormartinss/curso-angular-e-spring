@@ -1,18 +1,24 @@
 package io.github.igormartinss.agendaapi.controller;
 
 import io.github.igormartinss.agendaapi.model.entity.Contact;
-import io.github.igormartinss.agendaapi.model.repository.ContactRepository;
 import io.github.igormartinss.agendaapi.service.ContactService;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Part;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/contacts")
+@CrossOrigin("*")
 public class ContactController {
 
     @Autowired
@@ -30,19 +36,17 @@ public class ContactController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Contact>> listAll() {
-        try {
-            return new ResponseEntity<>(contactService.findAll(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Page<Contact>> listAll(@RequestParam(value = "page", defaultValue = "0") Integer page,
+                                                 @RequestParam(value = "pageSize", defaultValue = "10")  Integer pageSize) {
+        return new ResponseEntity<Page<Contact>>(contactService.findAll(page, pageSize), HttpStatus.OK);
     }
 
     @PatchMapping("/{id}/favorite")
-    public void favorite(@PathVariable Integer id, @RequestBody Boolean isFavorite) {
+    public void favorite(@PathVariable Integer id) {
         Optional<Contact> contact = contactService.findById(id);
         contact.ifPresent(c -> {
-            c.setFavorite(isFavorite);
+            boolean favorite = c.getFavorite() == Boolean.TRUE ;
+            c.setFavorite(!favorite);
             contactService.save(c);
         });
     }
@@ -55,5 +59,25 @@ public class ContactController {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PutMapping("{id}/photo")
+    public byte[] addPhoto(@PathVariable Integer id, @RequestParam("photo") Part photo) {
+        Optional<Contact> contact = contactService.findById(id);
+
+        return contact.map(c -> {
+           try {
+               InputStream is = photo.getInputStream();
+               byte[] bytes = new byte[(int)photo.getSize()];
+               IOUtils.readFully(is, bytes);
+               c.setPhoto(bytes);
+               contactService.save(c);
+               is.close();
+               return bytes;
+           }catch (IOException e) {
+               return null;
+           }
+        }).orElse(null);
+
     }
 }
